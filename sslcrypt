@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -lt 3 ]
+then
+  echo "Usage : $0 [-e|-d] <input-file> <output-file>"
+  exit
+fi
+
+case $1 in
+  -e) openssl aes-256-cbc -in $2 -out $3 ;;
+  -d) openssl aes-256-cbc -d -in $2 -out $3 ;;
+esac

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[[ -f .reqs ]] || {
+    echo "no .reqs file found"
+    exit 1
+}
+
+reqs=`cat .reqs`
+
+for req in $reqs; do
+    echo "starting $req..."
+    sudo systemctl restart $req
+done

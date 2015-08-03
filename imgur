@@ -1,0 +1,11 @@
+#!/bin/env ruby
+require 'requests'
+require 'json'
+
+raise "must provide a file" if ARGV.size != 1
+
+begin
+  image = File.read(ARGV.first)
+  r = Requests.request('POST', 'https://api.imgur.com/3/upload', headers: { 'Authorization' => 'Client-ID e9489cd479a4296' }, data: { image: image, title: ARGV.first })
+  puts "\n #{JSON.load(r.body)['data']['link']} \n\n"
+end
