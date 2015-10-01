@@ -1,0 +1,3 @@
+[submodule "bs.git"]
+	path = bs.git
+	url = git@github.com:educabilia/bs.git
